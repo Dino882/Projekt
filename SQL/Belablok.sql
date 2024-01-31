@@ -48,3 +48,40 @@ alter table partija add foreign key (par1) references parovi (sifra);
 alter table partija add foreign key (par2) references parovi (sifra);
 alter table partija add foreign key (mijesanje) references mijesanja (sifra);
 
+
+select * from igraci;
+
+insert into igraci (ime,prezime) values
+('Dino', 'Sabljiæ'), --1
+('Pero', 'Periæ'), --2
+('Marko', 'Markiæ'), --3
+('Ivan', 'Ivaniæ'); --4
+
+select * from parovi;
+
+
+insert into parovi (igrac1,igrac2,NadimakIgrac1,NadimakIgrac2) values
+(1,2,'MI','MI'); --7
+insert into parovi (igrac1,igrac2,NadimakIgrac1,NadimakIgrac2) values
+(3,4,'VI','VI'); --8
+
+
+select * from mijesanja
+insert into mijesanja (BodoviMi,BodoviVi,ZvanjeMi,ZvanjeVi,stiglja,belot)
+values (85,77,20,0,null,null); --4
+
+insert into mijesanja (BodoviMi,BodoviVi,ZvanjeMi,ZvanjeVi,stiglja,belot)
+values (100,62,0,0,null,null); --5
+
+
+select* from partija 
+insert into partija (datum,mijesanje,par1,par2)
+values ('2024-01-31 19:00:00',4,7,8)
+
+insert into partija (datum,mijesanje,par1,par2)
+values ('2024-01-31 20:00:00',5,7,8)
+
+
+
+
+
