@@ -1,4 +1,4 @@
-use master;
+ï»¿use master;
 drop database if exists Belablok;
 create database Belablok collate Croatian_CI_AS;
 use Belablok
@@ -52,18 +52,18 @@ alter table partija add foreign key (mijesanje) references mijesanja (sifra);
 select * from igraci;
 
 insert into igraci (ime,prezime) values
-('Dino', 'Sabljiæ'), --1
-('Pero', 'Periæ'), --2
-('Marko', 'Markiæ'), --3
-('Ivan', 'Ivaniæ'); --4
+('Dino', 'SabljiÄ‡'), --1
+('Pero', 'PeriÄ‡'), --2
+('Marko', 'MarkiÄ‡'), --3
+('Ivan', 'IvaniÄ‡'); --4
 
 select * from parovi;
 
 
 insert into parovi (igrac1,igrac2,NadimakIgrac1,NadimakIgrac2) values
-(1,2,'MI','MI'); --7
+(1,2,'MI','MI'); --1
 insert into parovi (igrac1,igrac2,NadimakIgrac1,NadimakIgrac2) values
-(3,4,'VI','VI'); --8
+(3,4,'VI','VI'); --2
 
 
 select * from mijesanja
@@ -76,12 +76,7 @@ values (100,62,0,0,null,null); --5
 
 select* from partija 
 insert into partija (datum,mijesanje,par1,par2)
-values ('2024-01-31 19:00:00',4,7,8)
+values ('2024-01-31 19:00:00',1,1,2)
 
 insert into partija (datum,mijesanje,par1,par2)
-values ('2024-01-31 20:00:00',5,7,8)
-
-
-
-
-
+values ('2024-01-31 20:00:00',2,1,2)
