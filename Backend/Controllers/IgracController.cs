@@ -1,77 +1,43 @@
 ﻿using Backend.Data;
 using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace Backend.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class IgracController : ControllerBase
+    public class IgracController : BelaBlokController<Igrac, IgracDTORead, IgracDTOInsertUpdate>
     {
-        // Dependency injection
-        // Definiraš privatno svojstvo
-        private readonly EdunovaContext _context;
-
-        // Dependency injection
-        // U konstruktoru primir instancu i dodjeliš privatnom svojstvu
-        public IgracController(EdunovaContext context)
+        public IgracController(EdunovaContext context) : base(context)
         {
-            _context = context;
+            DbSet = _context.Igraci;
         }
-
-
-        [HttpGet]
-        public IActionResult Get()
+        protected override void KontrolaBrisanje(Igrac entitet)
         {
+            var entitetIzbaze = _context.Igraci
+                //.Include(x => x.Grupe)
+                .FirstOrDefault(x => x.Sifra == entitet.Sifra);
 
-            return new JsonResult(_context.Igraci.ToList());
+            if (entitetIzbaze == null)
+            {
+                throw new Exception("Ne postoji igrač s šifrom " + entitet.Sifra + " u bazi");
+            }
+            //            if (entitetIzbaze.Grupe != null && entitetIzbaze.Grupe.Count > 0)
+            //            {
+            //                StringBuilder sb = new();
+            //                sb.Append("Polaznik se ne može obrisati jer je postavljen na grupama: ");
+            //                foreach (var e in entitetIzbaze.Grupe)
+            //                {
+            //                    sb.Append(e.Naziv).Append(", ");
+            //                }
 
+            //                throw new Exception(sb.ToString()[..^2]);
+            //            }
+            //        }
 
+            //    }
         }
-
-        [HttpGet]
-        [Route("{sifra:int}")]
-        public IActionResult GetBySifra(int sifra)
-        {
-            return new JsonResult(_context.Igraci.ToList());
-        }
-
-
-
-        [HttpPost]
-        public IActionResult Post(Igrac smjer)
-        {
-            _context.Igraci.Add(smjer);
-            _context.SaveChanges();
-            return new JsonResult(smjer);
-        }
-
-        [HttpPut]
-        [Route("{sifra:int}")]
-        public IActionResult Put(int sifra, Igrac smjer)
-        {
-            var smjerIzBaze = _context.Igraci.Find(sifra);
-            // za sada ručno, kasnije će doći Mapper
-            smjerIzBaze.Ime = smjer.Ime;
-            smjerIzBaze.Prezime= smjer.Prezime;
-
-
-            _context.Igraci.Update(smjerIzBaze);
-            _context.SaveChanges();
-
-            return new JsonResult(smjerIzBaze);
-        }
-
-        [HttpDelete]
-        [Route("{sifra:int}")]
-        [Produces("application/json")]
-        public IActionResult Delete(int sifra)
-        {
-            var smjerIzBaze = _context.Igraci.Find(sifra);
-            _context.Igraci.Remove(smjerIzBaze);
-            _context.SaveChanges();
-            return new JsonResult(new { poruka = "Obrisano" });
-        }
-
     }
 }

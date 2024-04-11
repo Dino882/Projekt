@@ -6,6 +6,6 @@ namespace Backend.Models
     {
 
         [Key]
-        public int sifra { get; set; }
+        public int Sifra { get; set; }
     }
 }
