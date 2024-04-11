@@ -14,7 +14,7 @@ export default function IgraciDodaj(){
             alert('Pogledaj konzolu');
             return;
         }
-        navigate(RoutesNames.Igrac_PREGLED);
+        navigate(RoutesNames.IGRAC_PREGLED);
     }
 
     function obradiSubmit(e){ // e predstavlja event
@@ -24,10 +24,10 @@ export default function IgraciDodaj(){
         const podaci = new FormData(e.target);
 
         const Igrac = {
-            naziv: podaci.get('naziv'),  // 'naziv' je name atribut u Form.Control
-            trajanje: parseInt(podaci.get('trajanje')), //na backend je int
-            cijena: parseFloat(podaci.get('cijena')),
-            verificiran: podaci.get('verificiran')=='on' ? true : false            
+           
+            ime :podaci.get('ime'), //na backend je int
+            prezime : podaci.get('prezime'),
+                   
         };
 
         //console.log(Igrac);
@@ -47,7 +47,7 @@ export default function IgraciDodaj(){
 
                 <Form.Group controlId="prezime">
                     <Form.Label>Prezime</Form.Label>
-                    <Form.Control type="number" name="prezime" />
+                    <Form.Control type="text" name="prezime" />
                 </Form.Group>
 
                 
@@ -55,7 +55,7 @@ export default function IgraciDodaj(){
                 <hr />
                 <Row>
                     <Col xs={6} sm={6} md={3} lg={6} xl={1} xxl={2}>
-                        <Link className="btn btn-danger siroko" to={RoutesNames.Igrac_PREGLED}>
+                        <Link className="btn btn-danger siroko" to={RoutesNames.IGRAC_PREGLED}>
                             Odustani
                         </Link>
                     </Col>

@@ -6,7 +6,7 @@ namespace Backend.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class IgracController:ControllerBase
+    public class IgracController : ControllerBase
     {
         // Dependency injection
         // Definiraš privatno svojstvo
@@ -23,10 +23,10 @@ namespace Backend.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-        
-                return new JsonResult(_context.Igraci.ToList());
-            
-            
+
+            return new JsonResult(_context.Igraci.ToList());
+
+
         }
 
         [HttpGet]
@@ -54,7 +54,7 @@ namespace Backend.Controllers
             // za sada ručno, kasnije će doći Mapper
             smjerIzBaze.Ime = smjer.Ime;
             smjerIzBaze.Prezime= smjer.Prezime;
-           
+
 
             _context.Igraci.Update(smjerIzBaze);
             _context.SaveChanges();
@@ -70,7 +70,7 @@ namespace Backend.Controllers
             var smjerIzBaze = _context.Igraci.Find(sifra);
             _context.Igraci.Remove(smjerIzBaze);
             _context.SaveChanges();
-            return new JsonResult(new { poruka="Obrisano"});
+            return new JsonResult(new { poruka = "Obrisano" });
         }
 
     }

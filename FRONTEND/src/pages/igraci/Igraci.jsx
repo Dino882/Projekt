@@ -55,13 +55,13 @@ export default function Igraci(){
                         </tr>
                     </thead>
                     <tbody>
-                        {Igracovi && Igraci.map((Igrac,index)=>(
+                        {Igraci && Igraci.map((Igrac,index)=>(
                             <tr key={index}>
-                                <td>{Igrac.naziv}</td>
-                                <td>{Igrac.trajanje}</td>
-                                <td>{Igrac.cijena}</td>
+                                <td>{Igrac.ime}</td>
+                                <td>{Igrac.prezime}</td>
+                                
                                 <td>
-                                    {formatirajVerificiran(Igrac.verificiran)}
+                                    
                                     {/* 
                                     {Igrac.verificiran==null 
                                     ? 'Nije definirano'

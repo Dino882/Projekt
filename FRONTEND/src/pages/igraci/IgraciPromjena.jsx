@@ -27,7 +27,7 @@ export default function IgraciPromjena(){
         alert('Pogledaj konzolu');
         return;
     }
-    navigate(RoutesNames.Igrac_PREGLED);
+    navigate(RoutesNames.IGRAC_PREGLED);
 }
 
    useEffect(()=>{
@@ -42,7 +42,7 @@ export default function IgraciPromjena(){
 
         const Igrac = {
             naziv: podaci.get('ime'),  // 'naziv' je name atribut u Form.Control
-            trajanje: parseInt(podaci.get('prezime')), //na backend je int
+            prezime: podaci.get('prezime'), //na backend je int
                       
         };
         //console.log(routeParams.sifra);
@@ -66,11 +66,11 @@ export default function IgraciPromjena(){
                 </Form.Group>
 
                 <Form.Group controlId="prezime">
-                    <Form.Label>Trajanje</Form.Label>
+                    <Form.Label>Prezime</Form.Label>
                     <Form.Control 
                     type="text" 
                     name="prezime"
-                    defaultValue={Igrac.trajanje}
+                    defaultValue={Igrac.prezimenp}
                      />
                 </Form.Group>
 
@@ -78,7 +78,7 @@ export default function IgraciPromjena(){
                 <hr />
                 <Row>
                     <Col>
-                        <Link className="btn btn-danger siroko" to={RoutesNames.Igrac_PREGLED}>
+                        <Link className="btn btn-danger siroko" to={RoutesNames.IGRAC_PREGLED}>
                             Odustani
                         </Link>
                     </Col>
