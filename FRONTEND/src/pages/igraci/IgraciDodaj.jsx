@@ -40,24 +40,17 @@ export default function IgraciDodaj(){
         <Container>
             <Form onSubmit={obradiSubmit}>
 
-                <Form.Group controlId="naziv">
-                    <Form.Label>Naziv</Form.Label>
-                    <Form.Control type="text" name="naziv" required />
+                <Form.Group controlId="ime">
+                    <Form.Label>Ime</Form.Label>
+                    <Form.Control type="text" name="ime" required />
                 </Form.Group>
 
-                <Form.Group controlId="trajanje">
-                    <Form.Label>Trajanje</Form.Label>
-                    <Form.Control type="number" name="trajanje" />
+                <Form.Group controlId="prezime">
+                    <Form.Label>Prezime</Form.Label>
+                    <Form.Control type="number" name="prezime" />
                 </Form.Group>
 
-                <Form.Group controlId="cijena">
-                    <Form.Label>Cijena</Form.Label>
-                    <Form.Control type="text" name="cijena" />
-                </Form.Group>
-
-                <Form.Group controlId="verificiran">
-                    <Form.Check label="Verificiran" name="verificiran" />
-                </Form.Group>
+                
 
                 <hr />
                 <Row>

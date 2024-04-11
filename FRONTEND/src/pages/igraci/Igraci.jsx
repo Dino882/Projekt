@@ -49,13 +49,13 @@ export default function Igraci(){
                     <thead>
                         <tr>
                             <th>Ime</th>
-                            <th>Prezimee</th>
-                            <th>Sifra</th>
+                            <th>Prezime</th>
+                            
                             
                         </tr>
                     </thead>
                     <tbody>
-                        {Igracovi && Igracovi.map((Igrac,index)=>(
+                        {Igracovi && Igraci.map((Igrac,index)=>(
                             <tr key={index}>
                                 <td>{Igrac.naziv}</td>
                                 <td>{Igrac.trajanje}</td>
@@ -77,7 +77,7 @@ export default function Igraci(){
                                     </Button>
                                         {/* kosi jednostruki navodnici `` su AltGR (desni) + 7 */}
                                     <Button 
-                                    onClick={()=>{navigate(`/Igracovi/${Igrac.sifra}`)}} 
+                                    onClick={()=>{navigate(`/Igraci/${Igrac.sifra}`)}} 
                                     >
                                         Promjeni
                                     </Button>
