@@ -41,7 +41,7 @@ export default function IgraciPromjena(){
         const podaci = new FormData(e.target);
 
         const Igrac = {
-            naziv: podaci.get('ime'),  // 'naziv' je name atribut u Form.Control
+            ime: podaci.get('ime'),  // 'naziv' je name atribut u Form.Control
             prezime: podaci.get('prezime'), //na backend je int
                       
         };
@@ -70,7 +70,7 @@ export default function IgraciPromjena(){
                     <Form.Control 
                     type="text" 
                     name="prezime"
-                    defaultValue={Igrac.prezimenp}
+                    defaultValue={Igrac.prezime}
                      />
                 </Form.Group>
 

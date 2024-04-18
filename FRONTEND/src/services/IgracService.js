@@ -14,8 +14,8 @@ async function get(){
     })
 }
 
-async function post(smjer){
-    return await HttpService.post(naziv,smjer)
+async function post(Igrac){
+    return await HttpService.post(naziv,Igrac)
     .then((odgovor)=>{
         //console.table(odgovor.data);
         return {greska: false, poruka: odgovor.data};
@@ -26,8 +26,8 @@ async function post(smjer){
     })
 }
 
-async function put(sifra,smjer){
-    return await HttpService.put(naziv + '/'+sifra,smjer)
+async function put(sifra,Igrac){
+    return await HttpService.put(naziv + '/'+sifra,Igrac)
     .then((odgovor)=>{
         //console.table(odgovor.data);
         return {greska: false, poruka: odgovor.data};
@@ -38,8 +38,8 @@ async function put(sifra,smjer){
     })
 }
 
-async function _delete(sifraSmjera){
-    return await HttpService.delete(naziv + '/'+sifraSmjera)
+async function _delete(sifraIgraca){
+    return await HttpService.delete(naziv + '/'+sifraIgraca)
     .then((odgovor)=>{
         //console.table(odgovor.data);
         return {greska: false, poruka: odgovor.data.poruka};

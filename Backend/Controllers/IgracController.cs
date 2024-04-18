@@ -24,20 +24,7 @@ namespace Backend.Controllers
             {
                 throw new Exception("Ne postoji igrač s šifrom " + entitet.Sifra + " u bazi");
             }
-            //            if (entitetIzbaze.Grupe != null && entitetIzbaze.Grupe.Count > 0)
-            //            {
-            //                StringBuilder sb = new();
-            //                sb.Append("Polaznik se ne može obrisati jer je postavljen na grupama: ");
-            //                foreach (var e in entitetIzbaze.Grupe)
-            //                {
-            //                    sb.Append(e.Naziv).Append(", ");
-            //                }
-
-            //                throw new Exception(sb.ToString()[..^2]);
-            //            }
-            //        }
-
-            //    }
+          
         }
     }
 }

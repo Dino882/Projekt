@@ -1,9 +1,6 @@
 ﻿using Backend.Data;
 using Backend.Mappers;
 using Backend.Models;
-using Backend.Data;
-using Backend.Mappers;
-using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
