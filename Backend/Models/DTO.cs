@@ -12,3 +12,27 @@ namespace Backend.Models
     [Required(ErrorMessage = "Prezime obavezno")]
         string? Prezime);
 }
+
+
+public record MijesanjeDTORead (int Sifra, int BodoviMi, int BodoviVi, int ZvanjeMi, int ZvanjeVi, int stiglja, int belot);
+
+public record MijesanjeDTOInsertUpdate(
+    [Required(ErrorMessage = "BodoviMi obavezno")]
+    int BodoviMi,
+
+    [Required(ErrorMessage = "BodoviVi obavezno")]
+    int BodoviVi,
+
+    [Required(ErrorMessage = "ZvanjeMi obavezno")]
+    int ZvanjeMi,
+
+    [Required(ErrorMessage = "ZvanjeVi obavezno")]
+    int ZvanjeVi,
+
+    [Required(ErrorMessage = "stiglja ")]
+    int stiglja,
+
+    [Required(ErrorMessage = "belot")]
+    int belot
+
+    );
