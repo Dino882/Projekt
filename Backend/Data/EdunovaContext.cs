@@ -18,5 +18,17 @@ namespace Backend.Data
 
         public DbSet<Mijesanje> Mijesanja
         { get; set; }
+
+        public DbSet<Par> Parovi
+        { get; set; }
+
+        public DbSet<Partija> Partije
+        { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Par>().HasOne(p => p.Igrac1);
+            modelBuilder.Entity<Par>().HasOne(p => p.Igrac2);
+        }
     }
 }
